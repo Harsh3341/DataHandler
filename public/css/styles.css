@@ -1,0 +1,197 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url("../img/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    background-color: white;
+    height: 65px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+nav {
+    height: 100%;
+    padding: 0px 32px;
+}
+
+label {
+    font-family: 'JetBrains Mono', monospace;
+    color: rgb(0, 105, 255);
+}
+
+input {
+    width: 366px;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid rgb(135, 148, 176);
+    margin-top: 4px;
+    padding: 0px 16px;
+}
+
+.btn-1 {
+    width: 398px;
+    height: 48px;
+    border-radius: 8px;
+    border: none;
+    background: rgb(0, 97, 235);
+    padding: 0px 16px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 600;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-1:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(51, 135, 255);
+}
+
+.google {
+    margin-top: 16px;
+    border: 1px solid rgb(169, 179, 202);
+    border-radius: 10px;
+    color: rgb(36, 51, 90);
+    appearance: none;
+    margin: 0px;
+    overflow: visible;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-weight: 600;
+    color: rgb(0, 97, 235);
+    text-transform: none;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    padding: 0px 1rem;
+    background: rgb(255, 255, 255);
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+    line-height: 44px;
+    height: 48px;
+    min-width: 40px;
+    max-width: none;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(0, 97, 235);
+    width: 100%;
+}
+
+.img-gog {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: -4px;
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: initial;
+    position: relative;
+    top: 1px;
+    left: 4px
+}
+
+.div-gog {
+    display: inline-block;
+    vertical-align: middle;
+    background: rgb(255, 255, 255);
+    border-radius: 3px;
+    height: 2rem;
+    width: 2rem;
+    margin-right: 8px;
+    margin-top: -2px;
+}
+
+.google:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(51, 135, 255);
+}
+
+#userimg {
+    width: 30px;
+    height: 30px;
+}
+
+.div-right {
+    margin-left: auto;
+    margin-right: 0px;
+    font-family: 'Inter', sans-serif;
+}
+
+.row {
+    background-color: white;
+    width: 398px;
+    height: 500px;
+    border-radius: 24px;
+    padding: 24px 40px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+.heading1 {
+    font-size: 32px;
+    font-family: 'Epilogue', sans-serif;
+
+}
+
+.container {
+    height: 40rem;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .row {
+        background-color: white;
+        width: 253px;
+        height: 500px;
+        border-radius: 24px;
+        padding: 24px 40px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    }
+
+    input {
+        width: 227px;
+        height: 48px;
+        border-radius: 8px;
+        border: 1px solid rgb(135, 148, 176);
+        margin-top: 4px;
+        padding: 0px 16px;
+    }
+
+    .btn-1 {
+        width: 259px;
+        height: 48px;
+        border-radius: 8px;
+        border: none;
+        background: rgb(0, 97, 235);
+        padding: 0px 16px;
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        font-family: inherit;
+        font-weight: 600;
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .btn-1:hover {
+        color: rgb(255, 255, 255);
+        background: rgb(51, 135, 255);
+    }
+}

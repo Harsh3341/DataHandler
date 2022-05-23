@@ -1,0 +1,16 @@
+.flex{
+    display: flex;
+}
+
+.justify-content{
+    justify-content: center;
+}
+
+.align-item-center{
+    align-items: center;
+}
+
+.column{
+    flex-direction: column;
+    margin: 10px 0px 48px 0px;
+}
