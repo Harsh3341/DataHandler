@@ -18,12 +18,12 @@ nav {
     padding: 0px 32px;
 }
 
-label {
+.lab-main {
     font-family: 'JetBrains Mono', monospace;
     color: rgb(0, 105, 255);
 }
 
-input {
+.input-main {
     width: 366px;
     height: 48px;
     border-radius: 8px;
@@ -153,6 +153,70 @@ input {
     height: 40rem;
 }
 
+.container-body-1 {
+    background-color: white;
+    width: 84.24vw;
+    height: 465px;
+    border-radius: 24px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+.body-left {
+    width: 42.12vw;
+    height: 100%;
+    flex-direction: column;
+}
+
+.body-left h1 {
+    text-align: center;
+}
+
+.body-left form div {
+    align-items: center;
+    /* justify-content: center; */
+    margin: 1vw 0px;
+    display: flex;
+}
+
+.body-left form {
+    flex-direction: column;
+    width: 100%;
+}
+
+.body-left form div label {
+    width: 8.13vw;
+    text-align: center;
+    font-size: larger;
+}
+
+.lab-home {
+    font-family: 'JetBrains Mono', monospace;
+    margin-right: 4.55vw;
+}
+
+.input-home {
+    width: 15.95vw;
+    height: 42px;
+    border-radius: 24px;
+    padding: 0px 10px;
+    text-align: center;
+}
+
+.btn-home {
+    background-color: black;
+    color: white;
+    width: 171px;
+    height: 41px;
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+.btn-home:hover {
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+}
+
 @media only screen and (max-width: 600px) {
 
     .row {
@@ -193,5 +257,34 @@ input {
     .btn-1:hover {
         color: rgb(255, 255, 255);
         background: rgb(51, 135, 255);
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .body-left {
+        width: 100%;
+
+    }
+
+    .body-left form div label {
+        width: 32.13vw;
+        text-align: center;
+    }
+
+    .body-left form div {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .input-home {
+        width: 50%;
+
+    }
+
+}
+
+@media only screen and (min-width: 1700px) {
+    .container-body-1 {
+        height: 58.8vh;
     }
 }

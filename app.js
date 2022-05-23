@@ -141,6 +141,27 @@ app.post("/", function (req, res) {
 });
 
 
+app.post("/home", function (req, res) {
+
+    const userdata = new data({
+        combo: req.body.combo,
+        date: req.body.date,
+        price: req.body.price,
+        accountemail: req.body.emailnum
+
+    })
+    userdata.save(function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect("/home")
+        }
+    });
+});
+
+
+
+
 
 
 
