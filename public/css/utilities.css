@@ -1,16 +1,20 @@
-.flex{
+.flex {
     display: flex;
 }
 
-.justify-content{
+.justify-content {
     justify-content: center;
 }
 
-.align-item-center{
+.align-item-center {
     align-items: center;
 }
 
-.column{
+.column {
     flex-direction: column;
     margin: 10px 0px 48px 0px;
+}
+
+.flex-wrap {
+    flex-wrap: wrap-reverse;
 }

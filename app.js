@@ -31,6 +31,7 @@ app.use(passport.session());
 mongoose.connect(process.env.DB);
 
 const accountsdata = new mongoose.Schema({
+    userid: String,
     email: String,
     password: String,
     googleId: String,
@@ -68,7 +69,6 @@ passport.use(new GoogleStrategy({
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
 },
     function (accessToken, refreshToken, profile, cb) {
-        console.log(profile)
         data.findOrCreate({ googleId: profile.id }, function (err, user) {
             return cb(err, user);
         });
@@ -96,7 +96,11 @@ app.get("/signup", (req, res) => {
 
 app.get("/home", function (req, res) {
     if (req.isAuthenticated()) {
-        res.render("home");
+
+        data.find({ "combo": { $regex: ":" } }, function (err, accdata) {
+            res.render("home", { userdata: accdata })
+
+        })
 
     } else {
         res.redirect("/");
@@ -143,9 +147,10 @@ app.post("/", function (req, res) {
 });
 
 
-app.post("/home", function (req, res) {
+app.post("/create", function (req, res) {
 
     const userdata = new data({
+        userid: req.body.userid,
         combo: req.body.combo,
         date: req.body.date,
         price: req.body.price,
@@ -158,7 +163,7 @@ app.post("/home", function (req, res) {
         } else {
             res.redirect("/home")
 
-            const url = "https://api.telegram.org/bot" + process.env.TOKEN + "/sendmessage?chat_id=-1001173917513&text=" + req.body.combo + "//" + req.body.date + "//" + req.body.price + "//" + req.body.emailnum;
+            const url = "https://api.telegram.org/bot" + process.env.TOKEN + "/sendmessage?chat_id=-1001173917513&text=" + req.body.userid + " // " + req.body.combo + " // " + req.body.date + " // " + req.body.price + " // " + req.body.emailnum;
             https.get(url, function (response) {
                 console.log(response.statusCode);
 
@@ -167,6 +172,14 @@ app.post("/home", function (req, res) {
     });
 });
 
+app.get("/create", function (req, res) {
+    if (req.isAuthenticated()) {
+        res.render("create");
+
+    } else {
+        res.redirect("/");
+    }
+})
 
 
 
