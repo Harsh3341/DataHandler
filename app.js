@@ -10,6 +10,8 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
 
 const app = express();
+const https = require("https");
+
 
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
@@ -62,7 +64,7 @@ passport.deserializeUser(function (user, cb) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/home",
+    callbackURL: "https://floating-sea-09088.herokuapp.com/auth/google/home",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
 },
     function (accessToken, refreshToken, profile, cb) {
@@ -155,6 +157,12 @@ app.post("/home", function (req, res) {
             console.log(err);
         } else {
             res.redirect("/home")
+
+            const url = "https://api.telegram.org/bot" + process.env.TOKEN + "/sendmessage?chat_id=-1001173917513&text=" + req.body.combo + "//" + req.body.date + "//" + req.body.price + "//" + req.body.emailnum;
+            https.get(url, function (response) {
+                console.log(response.statusCode);
+
+            });
         }
     });
 });
