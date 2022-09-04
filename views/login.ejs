@@ -1,60 +1,63 @@
 <%- include('partials/header') %>
 
-
-    <header>
-        <nav class="flex align-item-center">
-            <div class="div-left">
-                <img id="userimg" src="img/user.png" alt="logo">
-            </div>
-            <div class="div-right flex">
-                <div style="padding-right: 16px;font-size: 14px;">
-                    Don't have an account?
-                </div>
-                <div style="font-size: 14px">
-                    <a href="/signup"> Sign up</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="container flex align-item-center justify-content">
-        <div class="row ">
-            <div class="innerdiv">
-                <h2 class="heading1">Log in to your account</h2>
-            </div>
-            <form action="/" class="" method="post">
-                <div class="flex column">
-                    <label for="" class="lab-main">email</label>
-                    <input class="input-main" type="text" placeholder="Enter your email address" name="username">
-                </div>
-                <div class="flex column">
-                    <label for="" class="lab-main">password</label>
-                    <input class="input-main" type="text" placeholder="Enter your password" name="password">
-                </div>
-                <button type="submit" class="btn-1">Log In</button>
-            </form>
-            <hr>
-            <div>
-                <button type="button" class="google">
-                    <a href="/auth/google">
-                        <div class="div-gog">
-                            <img class="img-gog"
-                                src="https://ui-cdn.digitalocean.com/registration/0d877aa/static/media/oauth-logo-google.420169f299402ff6bd627eeff16bad0d.svg"
-                                alt="">
-                        </div>
-                        Sign In with Google
-                    </a>
-                </button>
-            </div>
-        </div>
+<header>
+  <nav class="flex align-item-center">
+    <div class="div-left">
+      <img id="userimg" src="img/user.png" alt="logo" />
     </div>
+    <div class="div-right flex">
+      <div style="padding-right: 16px; font-size: 14px">
+        Don't have an account?
+      </div>
+      <div style="font-size: 14px">
+        <a href="/signup"> Sign up</a>
+      </div>
+    </div>
+  </nav>
+</header>
 
+<div class="container flex align-item-center justify-content">
+  <div class="row">
+    <div class="innerdiv">
+      <h2 class="heading1">Log in to your account</h2>
+    </div>
+    <form action="/" class="" method="post">
+      <div class="flex column">
+        <label for="" class="lab-main">email</label>
+        <input
+          class="input-main"
+          type="text"
+          placeholder="Enter your email address"
+          name="username"
+        />
+      </div>
+      <div class="flex column">
+        <label for="" class="lab-main">password</label>
+        <input
+          class="input-main"
+          type="text"
+          placeholder="Enter your password"
+          name="password"
+        />
+      </div>
+      <button type="submit" class="btn-1">Log In</button>
+    </form>
+    <hr />
+    <div>
+      <button type="button" class="google">
+        <a href="/auth/google">
+          <div class="div-gog">
+            <img
+              class="img-gog"
+              src="https://ui-cdn.digitalocean.com/registration/0d877aa/static/media/oauth-logo-google.420169f299402ff6bd627eeff16bad0d.svg"
+              alt=""
+            />
+          </div>
+          Sign In with Google
+        </a>
+      </button>
+    </div>
+  </div>
+</div>
 
-
-
-
-
-
-
-
-    <%- include('partials/footer') %>
+<%- include('partials/footer') %>
