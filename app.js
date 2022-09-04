@@ -11,6 +11,7 @@ const findOrCreate = require("mongoose-findorcreate");
 
 const app = express();
 const https = require("https");
+const { json } = require("body-parser");
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
@@ -80,6 +81,10 @@ passport.use(
   )
 );
 
+let Userid = "";
+let Date = "";
+let Price = "";
+
 app.get("/", (req, res) => {
   res.render("login");
 });
@@ -93,7 +98,7 @@ app.get(
   "/auth/google/home",
   passport.authenticate("google", { failureRedirect: "/" }),
   function (req, res) {
-    res.redirect("/home");
+    res.redirect("/setup");
   }
 );
 
@@ -103,7 +108,7 @@ app.get("/signup", (req, res) => {
 
 app.get("/home", function (req, res) {
   if (req.isAuthenticated()) {
-    data.find({ combo: { $regex: ":" } }, function (err, accdata) {
+    data.find({ userid: Userid }, function (err, accdata) {
       res.render("home", { userdata: accdata });
     });
   } else {
@@ -116,6 +121,9 @@ app.get("/logout", function (req, res, next) {
     if (err) {
       return next(err);
     }
+    Userid = "";
+    Price = "";
+    Date = "";
     res.redirect("/");
   });
 });
@@ -130,7 +138,7 @@ app.post("/signup", (req, res) => {
         res.redirect("/signup");
       } else {
         passport.authenticate("local")(req, res, function () {
-          res.redirect("/home");
+          res.redirect("/setup");
         });
       }
     }
@@ -147,7 +155,7 @@ app.post("/", function (req, res) {
       console.log(err);
     } else {
       passport.authenticate("local")(req, res, function () {
-        res.redirect("/home");
+        res.redirect("/setup");
       });
     }
   });
@@ -155,10 +163,10 @@ app.post("/", function (req, res) {
 
 app.post("/create", function (req, res) {
   const userdata = new data({
-    userid: req.body.userid,
+    userid: Userid,
     combo: req.body.combo,
-    date: req.body.date,
-    price: req.body.price,
+    date: Date,
+    price: Price,
     accountemail: req.body.emailnum,
   });
   userdata.save(function (err) {
@@ -171,13 +179,13 @@ app.post("/create", function (req, res) {
         "https://api.telegram.org/bot" +
         process.env.TOKEN +
         "/sendmessage?chat_id=-1001173917513&text=" +
-        req.body.userid +
+        Userid +
         " // " +
         req.body.combo +
         " // " +
-        req.body.date +
+        Date +
         " // " +
-        req.body.price +
+        Price +
         " // " +
         req.body.emailnum;
       https.get(url, function (response) {
@@ -193,6 +201,21 @@ app.get("/create", function (req, res) {
   } else {
     res.redirect("/");
   }
+});
+
+app.get("/setup", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render("setup");
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.post("/setup", (req, res) => {
+  Userid = req.body.userid;
+  Date = req.body.date;
+  Price = req.body.price;
+  res.redirect("/home");
 });
 
 let port = process.env.PORT;

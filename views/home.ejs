@@ -1,55 +1,45 @@
 <%- include('partials/header') %>
 
-    <header>
-        <nav class="flex align-item-center">
-            <div class="div-left">
-                <img id="userimg" src="img/user.png" alt="logo">
-            </div>
-            <div class="div-center flex">
-                <div class="flex align-item-center justify-content">
-                    <a href="/create"> Create</a>
-                </div>
-            </div>
-            <div class="div-right flex">
-                <div style="font-size: 14px">
-                    <a href="/logout" role="button"> Logout</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="container flex column  align-item-center">
-        <div class="flex column align-item-center main-div">
-            <div class="h-home">
-                Recent Data
-            </div>
-            <div class="flex content-div flex-wrap justify-content">
-                <% userdata.forEach(function(data){ %>
-                    <div class="flex data-div align-item-center">
-
-                        <h3>
-                            <%= data.userid %>
-                        </h3>
-                        <ul>
-                            <li>
-                                <%= data.combo%>
-                            </li>
-                            <li>
-                                <%= data.date%>
-                            </li>
-                            <li>
-                                <%= data.price%>
-                            </li>
-                            <li>
-                                <%= data.accountemail%>
-                            </li>
-                        </ul>
-
-                    </div>
-                    <% })%>
-            </div>
-        </div>
+<header>
+  <nav class="flex align-item-center">
+    <div class="div-left">
+      <img id="userimg" src="img/user.png" alt="logo" />
     </div>
+    <div class="div-center flex">
+      <div class="flex align-item-center justify-content">
+        <a href="/create"> Create</a>
+      </div>
+    </div>
+    <div class="div-center flex">
+      <div class="flex align-item-center justify-content">
+        <a href="/setup"> Setup</a>
+      </div>
+    </div>
+    <div class="div-right flex">
+      <div style="font-size: 14px">
+        <a href="/logout" role="button"> Logout</a>
+      </div>
+    </div>
+  </nav>
+</header>
 
+<div class="container flex column align-item-center">
+  <div class="flex column align-item-center main-div">
+    <div class="h-home">Recent Data</div>
+    <div class="flex content-div flex-wrap justify-content">
+      <% userdata.forEach(function(data){ %>
+      <div class="flex data-div align-item-center">
+        <h3><%= data.userid %></h3>
+        <ul>
+          <li><%= data.combo%></li>
+          <li><%= data.date%></li>
+          <li><%= data.price%></li>
+          <li><%= data.accountemail%></li>
+        </ul>
+      </div>
+      <% })%>
+    </div>
+  </div>
+</div>
 
-    <%- include('partials/footer') %>
+<%- include('partials/footer') %>
