@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<header>
+  <nav class="flex align-item-center">
+    <div class="div-left">
+      <img id="userimg" src="img/user.png" alt="logo" />
+    </div>
+    <div class="div-right flex">
+      <div style="font-size: 14px">
+        <a href="/logout" role="button"> Logout</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="container flex column align-item-center">
+  <div class="flex container-body-1">
+    <div class="flex body-left align-item-center">
+      <h1 class="">Details</h1>
+      <form action="/setup" method="post" class="flex align-item-center">
+        <div>
+          <label for="" class="lab-home">Userid:</label>
+          <input type="text" name="userid" class="input-home" />
+        </div>
+
+        <div>
+          <label class="lab-home" for="">Date:</label>
+          <input type="text" name="date" class="input-home" />
+        </div>
+        <div>
+          <label class="lab-home" for="">Price:</label>
+          <input type="text" name="price" class="input-home" />
+        </div>
+
+        <div>
+          <button type="submit" class="btn-home">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div></div>
+</div>
+
+<%- include('partials/footer') %>
